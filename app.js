@@ -3,7 +3,6 @@ function fetchVocab()
     var search_vocab = document.getElementById("search_value").value
     var request = new XMLHttpRequest()
     var create_display = ""
-    var h1, p, p1
     // Open a new connection, using the GET request on the URL endpoint
     request.open('GET', 'https://api.dictionaryapi.dev/api/v2/entries/en/'+search_vocab, true)
 
@@ -13,26 +12,20 @@ function fetchVocab()
 
         if (request.status >= 200 && request.status < 400) {
         data.forEach((word) => {
-
             var meaning = word.meanings
-            h1 = document.createElement('h1')
-            h1.textContent = word.word
-            console.log(h1.textContent)
-            //create_display += "<b>Word</b><br>" + h1.outerHTML
+            var origin = ""
+            if (word.origin){
+                origin = word.origin
+            }
             meaning.forEach((info) => {
-                p = document.createElement('p')
-                p.textContent = info.partOfSpeech
-                console.log(p.textContent)
-                create_display += h1.outerHTML + "<i>" + p.outerHTML + "</i>"
+                create_display += createParagraph(word.word, 'h1') + "<i>" + createParagraph(word.phonetic) + createParagraph(info.partOfSpeech) + "</i><b>Origin</b><br>" + 
+                createParagraph(origin) + "<b>Meaning</b><br>"
 
-                info.definitions.forEach((defi_val) => {
-                    p1 = document.createElement('p')
-                    p1.textContent = defi_val.definition
-                    console.log(defi_val.definition)
-                    create_display += p1.outerHTML +"<hr style=\"height:2px;border-width:0;color:gray;background-color:gray\">"
+                info.definitions.forEach((defin) => {
+                    create_display += createParagraph(defin.definition) +"<hr style=\"height:0px;color:gray;background-color:gray\">"
                 })
             })
-            console.log(create_display)
+            //console.log(create_display)
             document.getElementById("display").innerHTML = create_display
         })
         } else {
@@ -40,10 +33,30 @@ function fetchVocab()
         }
       }
       request.send()
-    /*fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+search_vocab)
-        .then(response => response.json())
-        .then(data => console.log(data));*/
+      derivative()
+}
+
+function derivative() {
+    var txtFile = new XMLHttpRequest();
+    txtFile.open("GET", "/derivative.csv", true);
+    console.log(txtFile.responseText)
+    txtFile.onreadystatechange = function()
+    {
+        allText = txtFile.responseText;
+        allTextLines = allText.split(/\r\n|\n/);
+        console.log(allTextLines)
+    }
+    
     
 }
 
+
+
+
+//this function return tag element as a string, dafault tag is a paragraph
+function createParagraph(str, tag = 'p') {
+    let element = document.createElement(tag)
+    element.textContent = str
+    return element.outerHTML
+}
 
