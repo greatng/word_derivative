@@ -19,7 +19,7 @@ function fetchVocab()
             //console.log(typeof(phonetics), phonetics[0].audio)
             if (phonetics[0].audio){
                 audio = "<audio controls><source src=\"" + phonetics[0].audio + " \"type=\"audio/mpeg\"></audio>" //get audio url
-                console.log(audio)
+                //console.log(audio)
             } else {
                 audio = ""
             }
@@ -44,10 +44,10 @@ function fetchVocab()
         }
       }
       request.send()
-      loadDoc()
+      loadDoc(search_vocab)
 }
 
-function loadDoc() {
+function loadDoc(vocab) {
     var xhttp = new XMLHttpRequest();
     var allText = []
     var allTextLines = []
@@ -56,12 +56,24 @@ function loadDoc() {
       if (this.readyState == 4 && this.status == 200) {
         allText = this.responseText
         allTextLines = allText.split(/\r\n|\n/)
-
+        for (let i = 0; i < allTextLines.length; i++){
+            allWord[i] = []
+            console.log(allTextLines[i])
+            allWord[i] = allTextLines[i].split(",")
+        }
+        for (let i = 0; i < allWord.length; i++){
+            for (let j = 0; j < allWord[i].length; j++){
+                if (allWord[i][j].includes(vocab)){
+                    document.getElementById("derivative").innerHTML = allWord[i][0] + "(verbs)" + allWord[i][1] + "(noun)" + allWord[i][2] + "(adj)" + allWord[i][3] + "(adv)"
+                }
+            }
+        }
+        console.log(allWord)
       }
     };
     xhttp.open("GET", "derivative.txt", true);
     xhttp.send();
-    console.log(allTextLines)
+    //console.log(allTextLines)
   }
     
 

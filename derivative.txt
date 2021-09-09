@@ -1,5 +1,5 @@
 verbs,noun,adjective,adverb
-enable,ability,abe/unable,ably
+enable,ability,able/unable,ably
 ,absence/absentee,absent/absentminded,absentmindedly
 ,accident,accidental,accidentally
 accommodate,accomodation,,
