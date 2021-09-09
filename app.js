@@ -12,46 +12,58 @@ function fetchVocab()
 
         if (request.status >= 200 && request.status < 400) {
         data.forEach((word) => {
-            var meaning = word.meanings
+            var meaning = word.meanings //show word definition
+            var phonetics = word.phonetics 
             var origin = ""
-            if (word.origin){
-                origin = word.origin
+            //let audio = "<audio control><source src=\"" + word.phonetics.text + " \"type=\"audio/mpeg\"></audio>"
+            //console.log(typeof(phonetics), phonetics[0].audio)
+            if (phonetics[0].audio){
+                audio = "<audio controls><source src=\"" + phonetics[0].audio + " \"type=\"audio/mpeg\"></audio>" //get audio url
+                console.log(audio)
+            } else {
+                audio = ""
             }
+            if (word.origin){
+                origin = word.origin //show word origin if any
+            }
+
+            //this part create html tag
             meaning.forEach((info) => {
-                create_display += createParagraph(word.word, 'h1') + "<i>" + createParagraph(word.phonetic) + createParagraph(info.partOfSpeech) + "</i><b>Origin</b><br>" + 
-                createParagraph(origin) + "<b>Meaning</b><br>"
+                create_display += createParagraph(word.word, 'h3') + audio + "<i>" + createParagraph(word.phonetic) + createParagraph(info.partOfSpeech) + "</i><b>Origin</b><br>" + 
+                createParagraph(origin)
 
                 info.definitions.forEach((defin) => {
-                    create_display += createParagraph(defin.definition) +"<hr style=\"height:0px;color:gray;background-color:gray\">"
+                    create_display += "<b>Meaning</b><br>" + createParagraph(defin.definition) + "<b>Example</b>" + createParagraph(defin.example) + "<hr style=\"height:0px;color:gray;background-color:gray\">"
                 })
             })
             //console.log(create_display)
-            document.getElementById("display").innerHTML = create_display
+            document.getElementById("display").innerHTML = create_display //sent html tag element to display
         })
         } else {
-            document.getElementById("display").innerHTML = "Not Found"
+            document.getElementById("display").innerHTML = "Not Found" //if api call failed
         }
       }
       request.send()
-      derivative()
+      loadDoc()
 }
 
-function derivative() {
-    var txtFile = new XMLHttpRequest();
-    txtFile.open("GET", "/derivative.csv", true);
-    console.log(txtFile.responseText)
-    txtFile.onreadystatechange = function()
-    {
-        allText = txtFile.responseText;
-        allTextLines = allText.split(/\r\n|\n/);
-        console.log(allTextLines)
-    }
+function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    var allText = []
+    var allTextLines = []
+    var allWord = []
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        allText = this.responseText
+        allTextLines = allText.split(/\r\n|\n/)
+
+      }
+    };
+    xhttp.open("GET", "derivative.txt", true);
+    xhttp.send();
+    console.log(allTextLines)
+  }
     
-    
-}
-
-
-
 
 //this function return tag element as a string, dafault tag is a paragraph
 function createParagraph(str, tag = 'p') {
