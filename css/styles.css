@@ -11691,3 +11691,11 @@ body {
 .footer {
   padding: 5rem 0;
 }
+
+.audiocontroller {
+  padding: 5px;
+  max-width: 300px;
+  max-height: 35px;
+  margin-right: auto;
+  margin-left: auto;
+}
