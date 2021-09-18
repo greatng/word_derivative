@@ -16,49 +16,31 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="modules/wordList.js"></script>
     </head>
-    <body class="d-flex flex-column min-vh-100">
+    <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Word Family</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <!--
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
-                        -->
-                    </ul>
-                </div>
-            </div>
-        </nav>
         <!-- Masthead-->
         <header class="masthead">
-            <div class="container px-4 px-lg-5 d-flex h-auto align-items-center justify-content-center">
-                <div class="d-grid justify-content-center">
+            <div class="container px-4 px-lg-5 d-grid h-100 align-items-start justify-content-center">
+                <div class="d-grid justify-content-start">
                     <div class="text-center">
-                        <h6 class="text-white-50 mx-auto mt-0 mb-2">
-                            <br><br><br>
-                            <p>by greatng 😪 <a href="https://github.com/greatng/word_derivative" class="link-primary">Click here for source code</a></p>
-                            <p>API from <a href="https://dictionaryapi.dev/" class="link-primary">Free Dictionary API</a></p>
-                            <p>Database from Habash, N., & Dorr, B. (2003). A categorial variation database for English. 
-                              In Proceedings of the 2003 Conference of the North American Chapter of the Association for Computational Linguistics (pp. 17-23).</p>
-                        </h6>
                         <h1 class="mx-auto my-0 text-uppercase">Word Family</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">Find the meaning or the derivative of your word.</h2>
-                        <p class="lead">
+                        <p>
                             <p class="lead"><input type="text" id="search_value"></p>
-                            <button class="btn text-white" onclick="fetchVocab(document.getElementById('search_value').value)">Search</button>
+                            <button class="btn" onclick="fetchVocab(document.getElementById('search_value').value)">Search</button>
                         </p>
                             <h2 class="text-white mx-auto mt-2 mb-5 display-6"><i>Meaning</i></h2>
                             <p class="text-white-50 mx-auto mt-2 mb-5" id="display">Display goes here</p>
                             <h2 class="text-white mx-auto mt-2 mb-5 display-6"><i>Derivative</i></h2>
                             <p class="text-white-50 mx-auto mt-2 mb-5" id="derivative">Derivatives Display (if any)</p>
                         <!--a class="btn btn-primary" href="#about">Get Started</a> -->
+                        <h6 class="text-white-50 mx-auto mt-0 mb-2">
+                            <br><br><br>
+                            <p>by <i>greatng</i> 😪 greatng@hotmail.com <br><a href="https://github.com/greatng/word_derivative" class="link-primary">Click here for source code</a></p>
+                            <p>API from <a href="https://dictionaryapi.dev/" class="link-primary">Free Dictionary API</a></p>
+                            <p>Database from Habash, N., & Dorr, B. (2003). A categorial variation database for English. 
+                              In Proceedings of the 2003 Conference of the North American Chapter of the Association for Computational Linguistics (pp. 17-23).</p>
+                        </h6>
                     </div>
                 </div>
             </div>
