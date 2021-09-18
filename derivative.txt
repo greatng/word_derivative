@@ -1,6 +1,0 @@
-verbs,noun,adjective,adverb
-enable,ability,able/unable,ably
-,absence/absentee,absent/absentminded,absentmindedly
-,accident,accidental,accidentally
-accommodate,accomodation,,
-acknowledge,acknowledgement,,
