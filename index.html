@@ -1,63 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
-
-    <title>Vocab derivative : For Education purpose</title>
-    <script src="./modules/wordList.js"></script>
-
-</head>
-<body class="text-center">
-
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">Keep your word</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link" href="#">Features</a>
-            <a class="nav-link" href="#">Contact</a>
-          </nav>
-        </div>
-      </header>
-
-      <main role="main" class="inner cover">
-        <h1 class="cover-heading">Enter your vocab below</h1>
-        <p class="lead"><input type="text" id="search_value"></p>
-        <p class="lead">
-          <button class="btn" onclick="fetchVocab(document.getElementById('search_value').value)">Search</button>
-        </p>
-        <p class="lead" id="display">Display goes here</p>
-        <h3><i>Derivative</i></h3>
-        <p class="lead" id="derivative">Derivatives Display (if any)</p>
-      </main>
-
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p>by greatng 😪 <a href="https://github.com/greatng/word_derivative">Click here for source code</a></p>
-          <p>API from <a href="https://dictionaryapi.dev/">Free Dictionary API</a></p>
-          <p>Database from Habash, N., & Dorr, B. (2003). A categorial variation database for English. 
-            In Proceedings of the 2003 Conference of the North American Chapter of the Association for Computational Linguistics (pp. 17-23).</p>
-        </div>
-      </footer>
-    </div>
-
-
-
-
-
-    
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Word Family - Your best companion for English learning.</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="modules/wordList.js"></script>
+    </head>
+    <body class="d-flex flex-column min-vh-100">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#page-top">Word Family</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <!--
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 d-flex h-auto align-items-center justify-content-center">
+                <div class="d-grid justify-content-center">
+                    <div class="text-center">
+                        <h6 class="text-white-50 mx-auto mt-0 mb-2">
+                            <br><br><br>
+                            <p>by greatng 😪 <a href="https://github.com/greatng/word_derivative">Click here for source code</a></p>
+                            <p>API from <a href="https://dictionaryapi.dev/">Free Dictionary API</a></p>
+                            <p>Database from Habash, N., & Dorr, B. (2003). A categorial variation database for English. 
+                              In Proceedings of the 2003 Conference of the North American Chapter of the Association for Computational Linguistics (pp. 17-23).</p>
+                        </h6>
+                        <h1 class="mx-auto my-0 text-uppercase">Word Family</h1>
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Find the meaning or the derivative of your word.</h2>
+                        <p class="lead">
+                            <p class="lead"><input type="text" id="search_value"></p>
+                            <button class="btn text-white" onclick="fetchVocab(document.getElementById('search_value').value)">Search</button>
+                        </p>
+                            <h2 class="text-white mx-auto mt-2 mb-5 display-6"><i>Meaning</i></h2>
+                            <p class="text-white-50 mx-auto mt-2 mb-5" id="display">Display goes here</p>
+                            <h2 class="text-white mx-auto mt-2 mb-5 display-6"><i>Derivative</i></h2>
+                            <p class="text-white-50 mx-auto mt-2 mb-5" id="derivative">Derivatives Display (if any)</p>
+                        <!--a class="btn btn-primary" href="#about">Get Started</a> -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Contact-->
+        <!-- Footer-->
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
 </html>
