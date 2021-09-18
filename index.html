@@ -11,7 +11,9 @@
     <link href="cover.css" rel="stylesheet">
 
     <title>Vocab derivative : For Education purpose</title>
+    <script src="./modules/wordList.js"></script>
     <script src="app.js"></script>
+
 </head>
 <body class="text-center">
 
@@ -31,7 +33,8 @@
         <h1 class="cover-heading">Enter your vocab below</h1>
         <p class="lead"><input type="text" id="search_value"></p>
         <p class="lead">
-          <button class="btn" onclick="fetchVocab()">Look up</button>
+          <button class="btn" onclick="fetchVocab()">Meaning</button>
+          <button class="btn" onclick="search_div(document.getElementById('search_value').value)">Derivative</button>
         </p>
         <p class="lead" id="display">Display goes here</p>
         <h1><i>Derivative</i></h1>

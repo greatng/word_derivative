@@ -1,3 +1,6 @@
+//import word_list from "./wordList"
+//import word_list from './modules/wordList.js';
+
 function fetchVocab() 
 {
     var search_vocab = document.getElementById("search_value").value
@@ -44,10 +47,11 @@ function fetchVocab()
         }
       }
       request.send()
-      loadDoc(search_vocab)
+      //search_div(search_vocab)
+      //loadDoc(search_vocab)
 }
 
-function loadDoc(vocab) {
+/*function loadDoc(vocab) {
     var xhttp = new XMLHttpRequest();
     var allText = []
     var allTextLines = []
@@ -75,6 +79,7 @@ function loadDoc(vocab) {
     xhttp.send();
     //console.log(allTextLines)
   }
+  */
     
 
 //this function return tag element as a string, dafault tag is a paragraph
