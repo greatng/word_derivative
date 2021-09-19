@@ -11459,7 +11459,7 @@ html {
 
 body {
   letter-spacing: 0.0625em;
-  margin-bottom: 60px; /* Margin bottom by footer height */
+  /*margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
 #mainNav {
